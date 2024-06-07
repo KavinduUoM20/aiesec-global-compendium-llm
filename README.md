@@ -1,0 +1,1 @@
+# aiesec-global-compendium-llm
