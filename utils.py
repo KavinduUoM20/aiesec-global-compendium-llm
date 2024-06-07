@@ -33,7 +33,7 @@ def create_indexing():
     db = Chroma.from_documents(docs, embeddings, persist_directory='./data/')
 
 def create_retrieval():
-     # Create Prompt Template
+    # Create Prompt Template
     prompt = ChatPromptTemplate.from_template("""
     You're operating as an assistant for AIESEC. Your task is to assist users with inquiries regarding various topics covered in the AIESEC Global Compendium. Keep responses concise and relevant. If the information requested is not available in the compendium, do not provide any details.
 
@@ -46,7 +46,7 @@ def create_retrieval():
     document_chain = create_stuff_documents_chain(llm, prompt)
 
     # Load Vector DB
-    db = Chroma(persist_directory='./data/', embedding_function=OpenAIEmbeddings())
+    db = Chroma(persist_directory='./data/', embedding_function=OpenAIEmbeddings(api_key=OPENAI_API_KEY))
 
     # Create a Retriever
     retriever = db.as_retriever()
