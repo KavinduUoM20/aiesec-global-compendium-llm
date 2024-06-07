@@ -8,7 +8,7 @@ OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 # Headlines
 st.title("AIESEC In Sri Lanka")
-st.subheader("Global Compendium Document Retrieval")
+st.subheader("Chat with Global Compendium (β Version)")
 
 # Sessions
 if 'responses' not in st.session_state:
@@ -41,3 +41,11 @@ with response_container:
             message(st.session_state['responses'][i], key=str(i))
             if i < len(st.session_state['requests']):
                 message(st.session_state["requests"][i], is_user=True, key=str(i) + '_user')
+
+
+
+
+
+st.write("<br><br><br>", unsafe_allow_html=True)
+#Footer
+st.write("<p style='text-align: center;'>Made with ❤️ by &lt;/Dev.Team&gt; of AIESEC in Sri Lanka</p>", unsafe_allow_html=True)
